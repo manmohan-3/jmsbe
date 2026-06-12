@@ -3,8 +3,11 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const seedData = require('./config/seeder');
+
 const jobRoutes = require('./routes/jobRoutes');
 const authRoutes = require('./routes/authRoutes');
+const applicationRoutes = require('./routes/applicationRoutes');
+const candidateAuthRoutes = require('./routes/candidateAuthRoutes');
 
 dotenv.config();
 
@@ -17,6 +20,8 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/jobs', jobRoutes);
+app.use('/api/applications', applicationRoutes);
+app.use('/api/candidate', candidateAuthRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
