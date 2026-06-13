@@ -20,9 +20,10 @@ function Login() {
     }
     
   }
-  return (<><h1>Login Page</h1>
+  return (<>
     <form onSubmit={handlesubmit}>
-      <table border={1}>
+      <table border={1} style={{margin: "50px auto",padding: "20px",backgroundColor: "white"}}>
+        <caption><h2>Recruiter Login</h2></caption>
         <tr>
           <td><label htmlFor="l1">Enter Email:</label></td>
           <td><input type="email" placeholder="Enter Your Email" id="l1" value={formData.email} onChange={(e)=>{setformData({...formData, email: e.target.value,});}}/></td>

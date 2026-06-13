@@ -10,6 +10,7 @@ function CandidateLogin() {
             const response = await axios.post("http://localhost:5000/api/candidate/login", formData);
             console.log(response.data);
             localStorage.setItem("candidateToken", response.data.data.token);
+            localStorage.setItem("candidateData",JSON.stringify(response.data.data));
             alert("Login Successfull");
             navigate("/")
         }
@@ -22,7 +23,8 @@ function CandidateLogin() {
     return (<>
         <div> 
             <form onSubmit={handlesubmit}>
-                <table>
+                <table border={1} style={{margin: "50px auto",padding: "20px",backgroundColor: "white"}}>
+                    <caption><h2>Candidate Login</h2></caption>
                     <tr>
                         <td><label htmlFor="cl1">Enter Email:</label></td>
                         <td><input type="email" id="cl1" value={formData.email} placeholder="Enter email" onChange={(e) => setformData({ ...formData, email: e.target.value })} /></td>

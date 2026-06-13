@@ -9,6 +9,8 @@ import CreateJob from './pages/CreateJob'
 import ProtectedforCreate from './ProtectedforCreate'
 import CandidateLogin from './pages/CandidateLogin'
 import CandidateRegister from './pages/CandidateREgister'
+import Applications from './pages/Applications'
+import MyApplications from './pages/MyApplications'
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
           <Route path="/createjob" element={<ProtectedforCreate><CreateJob/></ProtectedforCreate>}></Route>
           <Route path='/candidate/register' element={<CandidateRegister/>}></Route>
           <Route path='/candidate/login' element={<CandidateLogin/>}></Route>
+          <Route path='/applications' element={<Applications/>}></Route>
+          <Route path='/myapplications' element={<MyApplications/>}>My Applications</Route>
         </Routes>
       
     </>

@@ -4,20 +4,22 @@ import axios from "axios";
 function Register() {
 
     const [formData, setformData] = useState({ name: "", email: "", password: "", role: "candidate" });
-    const handlesubmit= async (e)=>{e.preventDefault();
-    try{
-        const response=await axios.post("http://localhost:5000/api/auth/register",formData);
-        console.log(response.data);
-        console.log("Registration Successfull")
-    }catch(error){
-        console.log(error.response.data);
-        console.log("Registration Failed");
-    }};
+    const handlesubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("http://localhost:5000/api/auth/register", formData);
+            console.log(response.data);
+            console.log("Registration Successfull")
+        } catch (error) {
+            console.log(error.response.data);
+            console.log("Registration Failed");
+        }
+    };
     return (
         <>
             <div>
                 <form onSubmit={handlesubmit}>
-                    <table border={1}>
+                    <table border={1} style={{margin: "50px auto",padding: "20px",backgroundColor: "white"}}>
                         <caption><h2>Registration Form</h2></caption>
                         <tr>
                             <td>
@@ -45,14 +47,9 @@ function Register() {
                                 <input type="password" id="3" value={formData.password} onChange={(e) => setformData({ ...formData, password: e.target.value })} />
                             </td>
                         </tr>
+
                         <tr>
-                            <td><label htmlFor="4">Select Candidate or Recruiter</label></td>
-                            <td><select name="" id="4" onChange={(e) => setformData({ ...formData, role: e.target.value })}> <option value="candidate">Candidate</option>
-                                <option value="recruiter">Recruiter</option></select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><button>Clear</button></td>
+                            <td><button type="reset">Clear</button></td>
                             <td><button type="submit">Register</button></td>
                         </tr>
                     </table>

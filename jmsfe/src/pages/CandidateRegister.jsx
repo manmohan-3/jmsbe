@@ -16,9 +16,11 @@ function CandidateRegister() {
         }
     };
     return (<>
-        <div>
+        <div >
             <form onSubmit={handlesubmit}>
-                <table>
+                
+                <table border={1} style={{margin: "50px auto",padding: "20px",backgroundColor: "white"}}>
+                    <caption><h2>Candidate Registration</h2></caption>
                     <tr>
                         <td><label htmlFor="c1">Enter name:</label></td>
                         <td><input type="text" id="c1" value={formData.name} placeholder="Enter candidate name" onChange={(e) => setformData({ ...formData, name: e.target.value })} /></td>
